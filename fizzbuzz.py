@@ -1,3 +1,4 @@
+# honestly not the best way to do this, but this is an answer ig.
 for i in range(1, 100):
     char = ""
 

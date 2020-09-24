@@ -5,6 +5,7 @@ class Node:
         self.data = d
         self.next = None
 
+    # appends a node to the list. 
     def appendtotail(self, d):
         end = Node(d)
         current = self
@@ -12,13 +13,16 @@ class Node:
             current = current.next
         current.next = end
     
+    # deletes a node in the list. If there's a duplicate, get the first instance of node. 
     def delete(self, d):
         current = self
+        # if the node to be deleted is the first node, you don't need to set a previous
         if(d == current.data):
             self.data = current.next.data
             self.next = current.next.next
             return True
         else:
+            # connect the previous node to the nest node.
             prev = current
             current = current.next
             while(current is not None):
@@ -30,6 +34,7 @@ class Node:
                     current = current.next
             return False
 
+    # iterates the list and removes duplicates
     def removeDuplictes(self):
         current = self
         duplicatetable = {}
