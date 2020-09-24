@@ -1,0 +1,1 @@
+A bunch of different algorithms and concepts I'm exploring.
