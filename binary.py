@@ -40,6 +40,24 @@ class Tree:
             parent.left = newnode
         return self.root
 
+    # find the max depth of the binary tree
+    def maxDepth(self, root):
+
+        # if the root node is empty, return 0
+        if(root == None):
+            return 0
+        else:
+            # if not, find the max depth of left and right sub tree
+            left = self.maxDepth(root.left)
+            right = self.maxDepth(root.right)
+
+            # return the max of the left and right + 1.
+            return max(left, right) + 1
+        
+        # Essentially, it goes all the way to the bottom and return 0,
+        # then adds one all the way up the tree.
+
+
         
     def preOrderTraversal(self, node):
         # preorder traversal is visting current node before its children left to right.
@@ -74,7 +92,7 @@ class Node:
 
 
 def main():
-    nodes = [0, 1, 2, 3, 4, 5, 6]
+    nodes = [0, -1, 1, 0.5, 3, 2, 4, 6]
     # tree = Tree(nodes)
     # root = Node(0, Node(1), Node(2))
     # tree = Tree(root)
@@ -86,6 +104,7 @@ def main():
         root = tree.insertIterative(Node(i))
 
     tree.preOrderTraversal(root)
+    print(tree.maxDepth(root))
 
     
 
