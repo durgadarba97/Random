@@ -7,7 +7,6 @@ class Tree:
         # self.root = self.initializeTree()
 
     # insert new node into tree.
-    # Return self so that I can just keep it going.
     def insertIterative(self, newnode):
 
         if(self.root == None):
@@ -56,6 +55,39 @@ class Tree:
         
         # Essentially, it goes all the way to the bottom and return 0,
         # then adds one all the way up the tree.
+
+    # return the minimum depth of the tree. 
+    def minDepth(self, root):
+        # Found an empty node so come back up the recursive pattern.
+        if(root == None):
+            return 0
+        else:
+            # find the recursive depth of left vs right.
+            left = self.minDepth(root.left)
+            right = self.minDepth(root.right)
+
+            # if one of the sides is None, then we dont count this in the calculation.
+            # therefore find the max of the tree instead.
+            if(root.left == None or root.right == None):
+                return max(left, right) + 1
+            else:
+                return min(left, right) + 1
+
+    # returns the width of the tree. 
+    # TODO
+    def getWidth(self):
+        pass
+
+    # This prints out a cool tree diagram. 
+    # This will help me determine if the other methods are actually working. 
+    # Essentially a inOrderTraversal. My attempt at this will be to 
+    # form the final string and print it. 
+    #       ___1___
+    #       0      2
+    def visualize(self):
+        depth = self.maxDepth(self.root)
+        finalstring = ""
+        
 
 
         
