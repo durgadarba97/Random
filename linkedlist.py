@@ -73,8 +73,6 @@ class Node:
         return slow
 
 
-
-
     # iterates the list and removes duplicates
     def removeDuplictes(self):
         current = self
@@ -99,9 +97,12 @@ class Node:
         current = self
         # stop iterating when reaches the length of the list.
         while(current != None):
+            # a temp variable is used to keep track of the next element.
             n = current.next
-            previous = current
+            # Set current node's next to the previous node
             current.next = previous
+            # Set the previous node to the current node and iterate current to next node with the temp variable.
+            previous = current
             current = n
 
         
