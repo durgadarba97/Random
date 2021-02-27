@@ -73,6 +73,16 @@ class Tree:
             else:
                 return min(left, right) + 1
 
+    def invertTree(self, root):
+        # Need to do a postOrderTraversal of tree and switch nodes.
+        if(root != None):
+            print(root.val)
+            self.invertTree(root.left)
+            self.invertTree(root.right)
+            tmp = root.right
+            root.right = root.left
+            root.left = tmp
+
     # returns the width of the tree. 
     # TODO
     def getWidth(self):
