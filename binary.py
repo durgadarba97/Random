@@ -92,11 +92,14 @@ class Tree:
     # This will help me determine if the other methods are actually working. 
     # Essentially a inOrderTraversal. My attempt at this will be to 
     # form the final string and print it. 
-    #       ___1___
-    #       0      2
+    #        1
+    #       / \
+    #      0   2
     def visualize(self):
-        depth = self.maxDepth(self.root)
+        depth = 0
         finalstring = ""
+
+
         
 
 
@@ -111,16 +114,16 @@ class Tree:
     def postOrderTraversal(self, node):
         # visit children nodes left to right before the parent.
         if(node != None):
-            self.preOrderTraversal(node.left)
-            self.preOrderTraversal(node.right)
+            self.postOrderTraversal(node.left)
+            self.postOrderTraversal(node.right)
             self.visit(node)
     
     def inOrderTraversal(self, node):
         #  visit left node, root node, then parent node.
         if(node != None):
-            self.preOrderTraversal(node.left)
+            self.inOrderTraversal(node.left)
             self.visit(node)
-            self.preOrderTraversal(node.right)
+            self.inOrderTraversal(node.right)
 
     def visit(self, node):
         print(node.name)
@@ -145,8 +148,8 @@ def main():
     for i in nodes:
         root = tree.insertIterative(Node(i))
 
-    tree.preOrderTraversal(root)
-    print(tree.maxDepth(root))
+    tree.postOrderTraversal(root)
+    # print(tree.maxDepth(root))
 
     
 
