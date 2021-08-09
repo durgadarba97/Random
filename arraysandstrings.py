@@ -57,41 +57,32 @@ def rotateMatrix(matrix):
             matrix[row][len(matrix)-col-1] = tmp
     print(matrix)
 
-# There are three types of edits that be performed on strings: insert a character, remove a char, or replace. 
-# Given two strings, write a dunction to check if ther are 1 or 0 edits away.
-# pale and ple -> true
-# pale and bake -> false
-# this is wrong.
-def oneAway(string1, string2):
 
-    occurances = {}
-    # # get the longer and the shorter strings.
-    # longerstring = max([string1, string2], key=len)
-    # shortstring = min([string1, string2], key=len)
 
-    # iterate through longer string and ccompare to the shorter one, count occurances.
-    for i in range(len(string1)):
-        if(string1[i] not in occurances):
-            occurances[string1[i]] = 1
+# the basic idea of binary search is that we half the elements until we
+# find the one we're looking for.
+def binarySearch(arr, lookingfor):
+
+    low = 0
+    high = len(arr)-1
+    mid = (low + high) // 2
+
+    while(low <= high):
+        if(arr[mid] < lookingfor):
+            low = mid + 1
+        elif(arr[mid] > lookingfor):
+            high = mid - 1
         else:
-            occurances[string1[i]] += 1
+            return arr[mid]
 
-    for i in range(len(string2)):
-        if(string2[i] not in occurances):
-            occurances[string2[i]] = 1
-        else:
-            occurances[string2[i]] += 1
-    total = 0
-    for i in occurances:
-        total = (occurances[i] % 2) + total
+        mid = (low + high) // 2
+    return None
 
-    print(occurances)
-    print(total)
-    print(total <= 1)
-
-oneAway("pale", "lape") 
+print(binarySearch([1,2,3,4,5,6], 2))
+# oneAway("pale", "lape") 
 
     # if the differences between the strings is greater than 1, then return false.
+
     
     
     
@@ -112,20 +103,18 @@ oneAway("pale", "lape")
 
 # print(countAndSay('aaabbbccc'))
 
-def letterCombinations(digits):
-    if(not digits):
-        return []
+# def letterCombinations(digits):
+#     if(not digits):
+#         return []
 
-    phone = {
-                '2' : ['a', 'b', 'c'],
-                '3' : ['d','e', 'f'],
-                '4' : ['g', 'h', 'i'],
-                '5' : ['j', 'k', 'l'],
-                '6' : ['m', 'n', 'o'],
-                '7' : ['p', 'q', 'r', 's'],
-                '8' : ['t', 'u', 'v'],
-                '9' : ['w', 'x', 'y', 'z']
-            }
+#     phone = {
+#                 '2' : ['a', 'b', 'c'],
+#                 '3' : ['d','e', 'f'],
+#                 '4' : ['g', 'h', 'i'],
+#                 '5' : ['j', 'k', 'l'],
+#                 '6' : ['m', 'n', 'o'],
+#                 '7' : ['p', 'q', 'r', 's'],
+#                 '8' : ['t', 'u', 'v'],
+#                 '9' : ['w', 'x', 'y', 'z']
+#             }
 
-    # we can solve this using backtracking. 
-    #

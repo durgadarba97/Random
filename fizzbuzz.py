@@ -1,4 +1,9 @@
 # honestly not the best way to do this, but this is an answer ig.
+from typing import overload
+
+from typing_extensions import Unpack
+
+
 for i in range(1, 100):
     char = ""
 
@@ -11,3 +16,4 @@ for i in range(1, 100):
         print(i)
     else:
         print(char)
+
