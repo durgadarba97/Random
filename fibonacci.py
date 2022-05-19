@@ -1,3 +1,10 @@
+# 1 1 2 3 5 8
+fibonacci(f - 1)
+fibonacci(f - 1)
+fibonacci(f - 1)
+fibonacci(f - 1) + fibonacci(f - 2)
+fibonacci(1)
+
 
 # wrote this for the programming language.
 def fibonacci(f):
@@ -20,11 +27,11 @@ def fibonaccimemo(i, memo):
     return memo[i]
 
 
-print(fibonacci(20))
+print(fibonacci(6))
 
-memo = []
-n = 20
-for i in range(n+1):
-    memo.append(0)
-print(fibonaccimemo(n, memo))
+# memo = []
+# n = 20
+# for i in range(n+1):
+#     memo.append(0)
+# print(fibonaccimemo(n, memo))
 
